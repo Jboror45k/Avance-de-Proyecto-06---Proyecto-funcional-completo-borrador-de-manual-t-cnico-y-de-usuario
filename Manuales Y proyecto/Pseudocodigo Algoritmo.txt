@@ -1,0 +1,59 @@
+INICIO
+
+    REPETIR
+        MOSTRAR "        MENÚ PRINCIPAL      "
+        MOSTRAR "1. Registrar curso nuevo y nota"
+        MOSTRAR "2. Mostrar todas las notas"
+        MOSTRAR "3. Calcular promedio general"
+        MOSTRAR "4. Buscar nota por curso"
+        MOSTRAR "5. Eliminación de curso"
+        MOSTRAR "6. Actualizar la nota de un curso"
+        MOSTRAR "7. Mostrar cursos aprobados"
+        MOSTRAR "8. Historial de cursos"
+        MOSTRAR "9. Solicitud de Revisión de Cursos"
+        MOSTRAR "10. Ordenación de cursos en Burbuja"
+        MOSTRAR "11. Ordenación de cursos en Inserción"
+        MOSTRAR "12. Salir"
+
+        LEER opcion
+
+        SI opcion = "1" ENTONCES
+            LLAMAR registrar_curso_y_nota()
+        SINO SI opcion = "2" ENTONCES
+            LLAMAR mostrar_todas_las_notas()
+        SINO SI opcion = "3" ENTONCES
+            LLAMAR calcular_promedio_general()
+        SINO SI opcion = "4" ENTONCES
+            LLAMAR buscar_nota_por_curso()
+        SINO SI opcion = "5" ENTONCES
+            LLAMAR eliminar_curso()
+        SINO SI opcion = "6" ENTONCES
+            LLAMAR actualizar_nota()
+        SINO SI opcion = "7" ENTONCES
+            LLAMAR cursos_aprobados()
+        SINO SI opcion = "8" ENTONCES
+            LLAMAR historial_curso()
+        SINO SI opcion = "9" ENTONCES
+            LLAMAR cola_revision()
+        SINO SI opcion = "10" ENTONCES
+            cursos_ordenados ← ordenar_burbuja(cursos)
+            MOSTRAR "Cursos ordenados por nota de menor a mayor:"
+            PARA CADA c EN cursos_ordenados HACER
+                MOSTRAR c.curso , " : " , c.nota
+            FIN PARA
+        SINO SI opcion = "11" ENTONCES
+            cursos_ordenados ← ordenar_insercion(cursos)
+            MOSTRAR "Cursos ordenados por nombre:"
+            PARA CADA c EN cursos_ordenados HACER
+                MOSTRAR c.curso , " : " , c.nota
+            FIN PARA
+        SINO SI opcion = "12" ENTONCES
+            MOSTRAR "Saliendo..."
+            SALIR DEL BUCLE
+        SINO
+            MOSTRAR "Opción no válida."
+        FIN SI
+
+    HASTA opcion = "12"
+
+FIN
